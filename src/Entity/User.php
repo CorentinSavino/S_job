@@ -32,6 +32,13 @@ class User
     #[ORM\Column(length: 60)]
     private ?string $role = null;
 
+    #[ORM\ManyToOne(inversedBy: 'users')]
+    private ?Advisor $advisor = null;
+
+    #[ORM\ManyToOne(inversedBy: 'users')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Address $address = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -105,6 +112,30 @@ class User
     public function setRole(string $role): self
     {
         $this->role = $role;
+
+        return $this;
+    }
+
+    public function getAdvisor(): ?Advisor
+    {
+        return $this->advisor;
+    }
+
+    public function setAdvisor(?Advisor $advisor): self
+    {
+        $this->advisor = $advisor;
+
+        return $this;
+    }
+
+    public function getAddress(): ?Address
+    {
+        return $this->address;
+    }
+
+    public function setAddress(?Address $address): self
+    {
+        $this->address = $address;
 
         return $this;
     }

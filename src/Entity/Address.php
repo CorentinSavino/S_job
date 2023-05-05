@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\AddressRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: AddressRepository::class)]
@@ -33,6 +35,18 @@ class Address
 
     #[ORM\Column(length: 60)]
     private ?string $sector = null;
+
+    #[ORM\OneToMany(mappedBy: 'address', targetEntity: User::class)]
+    private Collection $users;
+
+    #[ORM\OneToMany(mappedBy: 'address', targetEntity: Advisor::class)]
+    private Collection $advisors;
+
+    public function __construct()
+    {
+        $this->users = new ArrayCollection();
+        $this->advisors = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -119,6 +133,66 @@ class Address
     public function setSector(string $sector): self
     {
         $this->sector = $sector;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, User>
+     */
+    public function getUsers(): Collection
+    {
+        return $this->users;
+    }
+
+    public function addUser(User $user): self
+    {
+        if (!$this->users->contains($user)) {
+            $this->users->add($user);
+            $user->setAddress($this);
+        }
+
+        return $this;
+    }
+
+    public function removeUser(User $user): self
+    {
+        if ($this->users->removeElement($user)) {
+            // set the owning side to null (unless already changed)
+            if ($user->getAddress() === $this) {
+                $user->setAddress(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Advisor>
+     */
+    public function getAdvisors(): Collection
+    {
+        return $this->advisors;
+    }
+
+    public function addAdvisor(Advisor $advisor): self
+    {
+        if (!$this->advisors->contains($advisor)) {
+            $this->advisors->add($advisor);
+            $advisor->setAddress($this);
+        }
+
+        return $this;
+    }
+
+    public function removeAdvisor(Advisor $advisor): self
+    {
+        if ($this->advisors->removeElement($advisor)) {
+            // set the owning side to null (unless already changed)
+            if ($advisor->getAddress() === $this) {
+                $advisor->setAddress(null);
+            }
+        }
 
         return $this;
     }
