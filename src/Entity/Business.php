@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\BusinessRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: BusinessRepository::class)]
@@ -33,6 +35,14 @@ class Business
 
     #[ORM\Column(length: 50)]
     private ?string $sector = null;
+
+    #[ORM\OneToMany(mappedBy: 'business', targetEntity: JobOffer::class)]
+    private Collection $jobOffers;
+
+    public function __construct()
+    {
+        $this->jobOffers = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -119,6 +129,36 @@ class Business
     public function setSector(string $sector): self
     {
         $this->sector = $sector;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, JobOffer>
+     */
+    public function getJobOffers(): Collection
+    {
+        return $this->jobOffers;
+    }
+
+    public function addJobOffer(JobOffer $jobOffer): self
+    {
+        if (!$this->jobOffers->contains($jobOffer)) {
+            $this->jobOffers->add($jobOffer);
+            $jobOffer->setBusiness($this);
+        }
+
+        return $this;
+    }
+
+    public function removeJobOffer(JobOffer $jobOffer): self
+    {
+        if ($this->jobOffers->removeElement($jobOffer)) {
+            // set the owning side to null (unless already changed)
+            if ($jobOffer->getBusiness() === $this) {
+                $jobOffer->setBusiness(null);
+            }
+        }
 
         return $this;
     }
