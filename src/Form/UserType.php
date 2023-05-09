@@ -61,7 +61,7 @@ class UserType extends AbstractType
            
             ->add('address', CollectionType::class, array(
                 'entry_type'=>AddressType::class,
-                'entry_option'=>['label'=>false],
+                'entry_options'=>['label'=>false],
             ))
 
             ->add('valider', SubmitType::class, [

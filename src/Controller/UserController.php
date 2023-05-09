@@ -21,7 +21,7 @@ class UserController extends AbstractController
         ]);
     }
 
-    #[Route('inscription', name: 'inscription')]
+    #[Route('/inscription', name: 'inscription')]
     public function inscription(Request $request, EntityManagerInterface $entityManager, UserPasswordHasherInterface $encoder):Response
     {
 
@@ -31,7 +31,7 @@ class UserController extends AbstractController
         $form=$this->createForm(UserType::class, $user);
         $form->handleRequest($request);
 
-        if($form->isValid() && $form->isSubmitted()){
+        if($form->isSubmitted() && $form->isValid()){
             $user = $form->getData();
             $search_email = $entityManager->getRepository(User::class)->findOneByEmail($user->getEmail());
             
@@ -50,7 +50,7 @@ class UserController extends AbstractController
             }
         }
 
-    return $this->render('/inscription.html.twig',[
+    return $this->render('public/formsg/inscription.html.twig',[
         
         'register_form'=>$form->createView(),
         'current_menu'=>'home',
