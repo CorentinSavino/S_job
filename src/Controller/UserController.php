@@ -50,7 +50,7 @@ class UserController extends AbstractController
             }
         }
 
-    return $this->render('public/forms/inscription.html.twig',[
+    return $this->render('public/formsg/inscription.html.twig',[
         
         'register_form'=>$form->createView(),
         'current_menu'=>'home',
