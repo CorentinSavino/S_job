@@ -1,0 +1,103 @@
+/* font start*/
+@font-face {
+    font-family: "sans60";
+    src: url(../../static/font/AUTHENTICSans-60.otf) format("Opentype");
+}
+@font-face {
+    font-family: "sans90";
+    src: url(../../static/font/AUTHENTICSans-90.otf) format("Opentype");
+}
+@font-face {
+    font-family: "sans130";
+    src: url(../../static/font/AUTHENTICSans-130.otf) format("Opentype");
+}
+/*body*/
+body{
+    margin: 0;
+    background-color: #D8DEA6 ;
+}
+/*Form start*/
+.form_sect{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(../../static/image/architecture-1448221_1920.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+form{
+    display: flex;
+    justify-content: center;
+    flex-direction: column; 
+    margin: 120px;
+    padding: 60px;
+    background-color: #FFFFFF;
+    border: #C10D00 solid 1px;
+    border-radius: 20px;
+}
+h1{
+    color: #C10D00;
+    font-family: "sans130";
+    text-align: center;
+    font-size: 60px;
+    margin: 0px 0px 20px 0px;
+}
+.inputBox{
+    border: solid #C10D00 1px;
+    border-radius: 10px;
+    margin: 10px;
+    padding: 10px;
+    width: 340px;
+    display: flex;
+    flex-direction: column;
+    margin: 10px auto;
+}
+input{
+    background-color: transparent;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    font-family: "sans60";
+    font-size: 16px;
+    color: #C10D00;
+    border-bottom: #C10D00 solid 1px;
+    margin-bottom: 10px;
+}
+input:focus{
+    border: transparent solid 3px;
+    background-color: #D8DEA6;
+}
+label{
+    font-family: "sans60";
+    font-size: 16px;
+    margin-bottom: 15px;
+    color: #C10D00;
+}
+
+h3{
+    font-family: "sans130";
+    font-size: 40px;
+    margin-bottom: 10px;
+    font-weight: normal;
+    text-align: center;
+}
+#submit{
+    background-color: #C10D00;
+    font-family: "sans130";
+    color: #FFFFFF;
+    padding: 8px;
+    margin: 25px;
+    border-radius: 20px;
+}
+select{
+    border: none;
+    font-family: "sans60";
+    font-size: 16px;
+    color: #C10D00;
+}
+.terrasse{
+    margin-top: 15px;
+   margin-bottom: 15px;
+   text-align: center;
+}
+/*Form End*/

@@ -58,11 +58,12 @@ class UserType extends AbstractType
                 ]
             ])
 
-           
-            ->add('address', CollectionType::class, array(
-                'entry_type'=>AddressType::class,
-                'entry_options'=>['label'=>false],
-            ))
+            // ->add('address', CollectionType::class, array(
+            //     'entry_type'=>AddressType::class,
+            //         'allow_add'    => true,
+            //         'allow_delete' => true,
+            //     'entry_options'=>['label'=>false],
+            // ))
 
             ->add('valider', SubmitType::class, [
                 'label'=>'S\'inscire',

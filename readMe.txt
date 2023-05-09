@@ -1,0 +1,1 @@
+les fichier php qui sont pas des formulaire, des read all et des read only, vous les mettez en publique 

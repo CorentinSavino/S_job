@@ -1,0 +1,81 @@
+/* font start*/
+@font-face {
+    font-family: "sans60";
+    src: url(../../static/font/AUTHENTICSans-60.otf) format("Opentype");
+}
+@font-face {
+    font-family: "sans90";
+    src: url(../../static/font/AUTHENTICSans-90.otf) format("Opentype");
+}
+@font-face {
+    font-family: "sans130";
+    src: url(../../static/font/AUTHENTICSans-130.otf) format("Opentype");
+}
+/*body*/
+body{
+    margin: 0;
+    background-color: whitesmoke ;
+    display: flex;
+}
+/*header*/
+header{
+    background-color: #FFFFFF;
+    padding: 40px;
+    margin: 3px solid #c10d00;
+}
+h1{
+    text-align: center;
+    font-size: 60px;
+    font-family: "Sans130";
+    color: #C10D00;
+}
+hr{
+    height: 2px;
+    background-color: #C10D00;
+    margin: 0px;
+    border: none;   
+}
+ul{
+    margin: 0px;
+    padding: 0px;
+}
+li{
+    list-style: none;
+    font-size: 24px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-family: "Sans130";
+    color: #C10D00;
+}
+i{
+    font-size: 24px;
+    margin-right: 10px;
+}
+/*table start*/
+table{
+    width: 100%;
+    border-collapse: collapse;
+}
+td{
+    text-align: center;
+    background-color: white;
+    border-collapse: collapse;
+    border-bottom: #C10D00 solid 1px;;
+    font-family: "sans60";
+    font-size: 16px;
+    color: #C10D00;
+    padding: 20px;
+}
+i{
+    font-size: 16px;
+    color: #C10D00;
+}
+th{
+    background-color: #C10D00;
+    color: #FFFFFF;
+    font-family: "sans130";
+    font-size: 16px;
+    border-collapse: collapse;
+    padding: 20px;
+    border: solid 2px  #C10D00;
+}
