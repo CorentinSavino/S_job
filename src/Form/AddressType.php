@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Address;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -12,13 +13,59 @@ class AddressType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('street_number')
-            ->add('street_name')
-            ->add('additional')
-            ->add('zip')
-            ->add('city')
-            ->add('radius')
-            ->add('sector')
+            ->add('street_number', TextType::class,[
+                'label'=>'prénom',
+                'attr'=>[
+                    'class'=>'form_field',
+                    'placeholder'=>'21'
+                ]
+            ])
+            
+            ->add('street_name', TextType::class,[
+                'label'=>'prénom',
+                'attr'=>[
+                    'class'=>'form_field',
+                    'placeholder'=>'21'
+                ]
+            ])
+            
+            ->add('additional', TextType::class,[
+                'label'=>'prénom',
+                'attr'=>[
+                    'class'=>'form_field',
+                    'placeholder'=>'21'
+                ]
+            ])
+            ->add('zip', TextType::class,[
+                'label'=>'prénom',
+                'attr'=>[
+                    'class'=>'form_field',
+                    'placeholder'=>'21'
+                ]
+            ])
+            ->add('city', TextType::class,[
+                'label'=>'prénom',
+                'attr'=>[
+                    'class'=>'form_field',
+                    'placeholder'=>'21'
+                ]
+            ])
+            
+            ->add('radius', TextType::class,[
+                'label'=>'prénom',
+                'attr'=>[
+                    'class'=>'form_field',
+                    'placeholder'=>'21'
+                ]
+            ])
+            
+            ->add('sector', TextType::class,[
+                'label'=>'prénom',
+                'attr'=>[
+                    'class'=>'form_field',
+                    'placeholder'=>'21'
+                ]
+            ])
         ;
     }
 
